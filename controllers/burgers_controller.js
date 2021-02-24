@@ -2,10 +2,10 @@ const express = require('express');
 
 const router = express.Router();
 
-// Import the model (burger.js) to use its database functions.
+// Import the model burger.js to use its database functions.
 const burger = require('../models/burger.js');
 
-// Create all our routes and set up logic within those routes where required.
+// setup all routes and their logic
 router.get('/', function(req, res) {
   burger.all(function(data) {
     const hbsObject = {
@@ -44,10 +44,10 @@ router.put('/api/burgers/:id', function(req, res) {
     condition,
     function(result) {
       if (result.changedRows == 0) {
-        // If no rows were changed, then the ID must not exist, so 404
-        return res.status(404).end();
+        // If no rows were changed, then the ID must not exist, so log an error
+        return console.log(err).end();
       }
-      res.status(200).end();
+      end();
     }
   );
 });
@@ -57,10 +57,10 @@ router.delete('/api/burgers/:id', function(req, res) {
 
   burger.delete(condition, function(result) {
     if (result.affectedRows == 0) {
-      // If no rows were changed, then the ID must not exist, so 404
-      return res.status(404).end();
+      // If no rows were changed, then the ID must not exist, so log an error
+      return console.log(err).end();
     }
-    res.status(200).end();
+    end();
   });
 });
 
