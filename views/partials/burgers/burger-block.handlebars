@@ -1,0 +1,11 @@
+<li class="burger-lists">
+	{{burger_name}}
+
+	<div class="burger-lists-btns">
+		<button class="change-devour" data-id="{{id}}" data-newdevour="{{devour}}">
+			{{#if devour}}DEVOUR{{else}}RE-ORDER{{/if}}
+		</button>
+
+		<button class="delete-burger" data-id="{{this.id}}">DELETE</button>
+	</div>
+</li>

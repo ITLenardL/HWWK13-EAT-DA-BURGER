@@ -1,0 +1,44 @@
+<div class="jumbotron">
+  <div class="burgerImage"><img src="/assets/images/burger_image.jpg" alt="burgers">
+ <h2>Add a burger and eat it!</h2>
+    <div class="add-burger-section mt-4">
+    <form class="create-form">
+      <div class="form-group">
+        <div class="input-group mb-3">
+          <input type="text" id="br" name="burger_name" class="form-control" placeholder="Burger Name"
+            aria-label="Burger Name" aria-describedby="button-addon2">
+          <div class="input-group-append">
+            <button class="add-burger-btn" type="submit" id="button-addon2">Add A Burger</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>    
+  </div>
+</div>
+
+<div class="container-fluid">
+
+  <div class="burger-lists mt-5 d-flex flex-column flex-sm-row justify-content-between">
+    <div class="undevoured-list list-box my-2 my-sm-0 mr-sm-2">
+      <h2 class="list-title">Not devoured:</h2>
+      <ul class="list-content" id="not-d-list">
+        {{#each burgers}}
+          {{#unless devoured}}
+            {{> burgers/burger-block devour=true}}
+          {{/unless}}
+        {{/each}}
+      </ul>
+    </div>
+
+    <div class="devoured-list list-box my-2 my-sm-0 ml-sm-2">
+      <h2 class="list-title ">Devoured:</h2>
+      <ul class="list-content" id="d-list">
+        {{#each burgers}}
+          {{#if devoured}}
+             {{> burgers/burger-block devour=false}}
+          {{/if}}
+        {{/each}}
+      </ul>
+    </div>
+  </div>
